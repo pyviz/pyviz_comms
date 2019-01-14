@@ -51,13 +51,9 @@ class extension(param.ParameterizedFunction):
 
 PYVIZ_PROXY = """
 if (window.PyViz === undefined) {
-   if (window.HoloViews === undefined) {
-     var PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
-   } else {
-     var PyViz = window.HoloViews;
-   }
-   window.PyViz = PyViz;
-   window.HoloViews = PyViz;  // TEMPORARY HACK TILL NEXT NPM RELEASE
+  var PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: [], index: []}
+  window.PyViz = PyViz;
+  window.HoloViews = PyViz;  // TEMPORARY HACK TILL NEXT NPM RELEASE
 }
 """
 

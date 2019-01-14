@@ -104,8 +104,8 @@ function init_slider(id: string, plot_id: string, dim: string, values: any, next
     }
     text.value = label;
     adjustFontSize(text);
-    if (!(plot_id in (window as any).HoloViews.index)) { return; }
-    (window as any).HoloViews.index[plot_id].set_frame(dim_val, dim_idx);
+    if (!(plot_id in (window as any).PyViz.index)) { return; }
+    (window as any).PyViz.index[plot_id].set_frame(dim_val, dim_idx);
     if (Object.keys(next_vals).length > 0) {
       var new_vals = next_vals[dim_val];
       var next_widget = (document as any).getElementById('_anim_widget'+id+'_'+next_dim);
@@ -162,7 +162,7 @@ function init_dropdown(id: string, plot_id: string, dim: string, vals: any,
       var next_widget = $('#_anim_widget'+id+'_'+next_dim);
       update_widget(next_widget, new_vals);
     }
-    var widgets = (window as any).HoloViews.index[plot_id]
+    var widgets = (window as any).PyViz.index[plot_id]
     if (widgets) {
       widgets.set_frame(dim_val, dim_idx);
     }
